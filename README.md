@@ -241,7 +241,7 @@ Solved iteratively with **Gauss–Seidel** until convergence tolerance $10^{-8}$
 
 **Pressure gauge fix:** $q(2,2) = 0$ pins the solution to remove the null space of the Laplacian (pressure defined only up to a constant for Neumann-only BCs).
 
-**Note:** We could have also implemented the same using the block-tridiagonal system or using approximate factorization methods, while both of these are huge systems to write up and code, using iterative solvers was a good choice.
+**Note:** We could have also implemented the same using the block-tridiagonal system or using approximate factorization methods, while both of these are huge systems to write up and code, instead, using iterative solvers was a good choice.
 
 **Implemented in:** `pressure_poisson_GS.m`
 
