@@ -237,9 +237,11 @@ $$\frac{\Delta y}{\Delta x}(q_{i,j+1} + q_{i,j-1}) + \frac{\Delta x}{\Delta y}(q
 
 Solved iteratively with **Gauss–Seidel** until convergence tolerance $10^{-8}$ is reached (max 10000 iterations).
 
-**Neumann BC** on all four walls: ghost cell value equals interior neighbour value ($q_{\text{ghost}} = q_{\text{interior}}$), enforcing $\delta q / \delta N = 0$.
+**Neumann BC** on all four walls: ghost cell value equals interior neighbor value ($q_{\text{ghost}} = q_{\text{interior}}$), enforcing $\delta q / \delta N = 0$
 
 **Pressure gauge fix:** $q(2,2) = 0$ pins the solution to remove the null space of the Laplacian (pressure defined only up to a constant for Neumann-only BCs).
+
+**Note:** We could have also implemented the same using the block-tridiagonal system or using approximate factorization methods, while both of these are huge systems to write up and code, using iterative solvers was a good choice.
 
 **Implemented in:** `pressure_poisson_GS.m`
 
