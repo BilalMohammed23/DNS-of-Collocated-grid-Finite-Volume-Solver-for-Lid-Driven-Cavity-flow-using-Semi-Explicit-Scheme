@@ -361,11 +361,11 @@ All results shown for $Re = 1000$, $N_x = 64$.
 
 ---
 
-### Reference
+### Benchmark
 
-> Ghia, U., Ghia, K. N., & Shin, C. T. (1982). *High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method.* Journal of Computational Physics, 48(3), 387–411.
->
-> Morinishi, Y., Lund, T. S., Vasilyev, O. V., & Moin, P. (1998). *Fully conservative higher order finite difference schemes for incompressible flow.* Journal of Computational Physics, 143(1), 90–124.
+Check out the benchmark data for Re=1000. You can see the exact numerical data that we have produced with our method.
+
+> *https://www.acenumerics.com/the-benchmarks.html*
 
 ---
 
