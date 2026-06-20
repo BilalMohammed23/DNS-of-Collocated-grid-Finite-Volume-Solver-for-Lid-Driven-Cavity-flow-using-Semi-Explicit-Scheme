@@ -129,11 +129,11 @@ Advance $u_i$ using convection + diffusion only, leaving pressure out of the pre
 
 **At $t = 0$ (Euler):**
 
-$$\hat{u}_i^{n+1} = u_i^n + \Delta t \left(C_i^n + D_i^n\right)$$
+$$\hat{u}_i^{n+1} = u_i^n + \Delta t \left(-C_i^n + D_i^n\right)$$
 
 **At $t > 0$ (Adams–Bashforth 2nd order):**
 
-$$\hat{u}_i^{n+1} = u_i^n + \Delta t \left[\frac{3}{2}\left(C_i^n + D_i^n\right) - \frac{1}{2}\left(C_i^{n-1} + D_i^{n-1}\right)\right]$$
+$$\hat{u}_i^{n+1} = u_i^n + \Delta t \left[\frac{3}{2}\left(-C_i^n + D_i^n\right) - \frac{1}{2}\left(-C_i^{n-1} + D_i^{n-1}\right)\right]$$
 
 > The predicted velocity $\hat{u}_i$ does not satisfy continuity. That is corrected in Steps 3–6.
 
