@@ -23,7 +23,7 @@
 
 Solve the **2D incompressible Navier–Stokes equations** in a square lid-driven cavity:
 
-$$\frac{\partial u_i}{\partial t} = C_i + D_i - \frac{\delta^P P}{\delta x_i}$$
+$$\frac{\partial u_i}{\partial t} = - C_i + D_i - \frac{\delta^P P}{\delta x_i}$$
 
 $$\frac{\delta u_i}{\delta x_i} = 0 \quad \text{(continuity)}$$
 
