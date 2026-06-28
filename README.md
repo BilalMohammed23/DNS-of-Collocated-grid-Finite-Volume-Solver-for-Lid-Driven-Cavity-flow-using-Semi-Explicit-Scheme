@@ -1,4 +1,4 @@
-# Lid-Driven Cavity Solver — Collocated FVM with Fractional Step Method
+# Lid-Driven Cavity Solver — Collocated FVM using Semi-Explicit Predictor Corrector Scheme
 
 ---
 
@@ -9,7 +9,7 @@
 3. [Governing Equations — Incompressible Navier–Stokes (FVM Form)](#3-governing-equations--incompressible-navierstokes-fvm-form)
 4. [Convection Term — FVM Discretisation](#4-convection-term--fvm-discretisation)
 5. [Diffusion Term — FVM Discretisation](#5-diffusion-term--fvm-discretisation)
-6. [Fractional Step Algorithm — 6-Step Procedure](#6-fractional-step-algorithm--6-step-procedure)
+6. [Predictor-Corrector Step Algorithm — 6-Step Procedure](#6-Predictor-Corrector-step-algorithm--6-step-procedure)
 7. [Pressure Poisson Equation](#7-pressure-poisson-equation)
 8. [Boundary Conditions](#8-boundary-conditions)
 9. [Time Step Constraint](#9-time-step-constraint)
@@ -117,9 +117,9 @@ The normal derivatives at faces are pre-computed and stored in arrays (`u_cell_s
 
 ---
 
-## 6. Fractional Step Algorithm — 6-Step Procedure
+## 6. Predictor-Corrector Step Algorithm — 6-Step Procedure
 
-The solver uses a **fractional step (projection) method** — velocity is first advanced without pressure (prediction), then corrected using a pressure increment $\Delta t P$ to enforce continuity. The nonlinear convection term uses **2nd-order Adams–Bashforth** ($t > 0$) or **Euler** ($t = 0$).
+The solver uses a **Predictor-Corrector step (projection) method** — velocity is first advanced without pressure (prediction), then corrected using a pressure increment $\Delta t P$ to enforce continuity. The nonlinear convection term uses **2nd-order Adams–Bashforth** ($t > 0$) or **Euler** ($t = 0$).
 
 ---
 
@@ -371,4 +371,4 @@ Check out the benchmark data for Re=1000. You can see the exact numerical data t
 
 ---
 
-*Solver: 2D Lid-Driven Cavity — Collocated FVM, Fractional Step Method, Adams–Bashforth 2nd order, Gauss–Seidel Pressure Poisson.*
+*Solver: 2D Lid-Driven Cavity — Collocated FVM, Predictor-Corrector Step Method, Adams–Bashforth 2nd order, Gauss–Seidel Pressure Poisson.*
