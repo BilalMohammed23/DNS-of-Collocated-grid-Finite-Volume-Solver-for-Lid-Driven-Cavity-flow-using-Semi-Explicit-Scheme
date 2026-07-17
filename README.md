@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-1. [Problem Statement](#1-problem-statement)
+1. [Abstract](#1-abstract)
 2. [Domain, Grid, and Variable Arrangement](#2-domain-grid-and-variable-arrangement)
 3. [Governing Equations — Incompressible Navier–Stokes (FVM Form)](#3-governing-equations--incompressible-navierstokes-fvm-form)
 4. [Convection Term — FVM Discretisation](#4-convection-term--fvm-discretisation)
@@ -19,18 +19,16 @@
 
 ---
 
-## 1. Problem Statement
-
-Solve the **2D incompressible Navier–Stokes equations** in a square lid-driven cavity:
-
-$$\frac{\partial u_i}{\partial t} = - C_i + D_i - \frac{\delta^P P}{\delta x_i}$$
-
+## 1. Abstract
+ 
+A collocated finite volume solver is developed for the 2D incompressible lid-driven cavity problem using a **fractional step (projection) method** with explicit time advancement. The governing equations solved are the incompressible Navier–Stokes equations in discrete form:
+ 
+$$\frac{\partial u_i}{\partial t} = C_i + D_i - \frac{\delta^P P}{\delta x_i}$$
+ 
 $$\frac{\delta u_i}{\delta x_i} = 0 \quad \text{(continuity)}$$
-
-where $C_i$ is the convection term, $D_i$ is the diffusion term, and $\delta^P/\delta x_i$ denotes the discrete pressure gradient. The velocity field must have zero divergence at every time step — enforced through a pressure Poisson equation.
-
-> For incompressible flow, mass conservation gives us the pressure. The divergence-free constraint $\delta u_i / \delta x_i = 0$ must hold at every time step — this is what the Poisson solve enforces.
-
+ 
+where $C_i$ is the convection term, $D_i$ is the diffusion term, and $\delta^P / \delta x_i$ denotes the discrete pressure gradient. Convection and diffusion terms are discretised in finite volume form by converting volume integrals to face-flux summations via the divergence theorem, and the nonlinear convective term is advanced using a 2nd-order Adams–Bashforth scheme. At each time step, a velocity predictor is first computed without pressure, after which a **pressure Poisson equation** is solved iteratively via Gauss–Seidel to recover a pressure increment that projects the predicted velocity onto a divergence-free field. Both face-normal and cell-centre velocities are corrected independently using the computed pressure gradient, with Neumann boundary conditions enforced on the Poisson equation and no-slip conditions applied through ghost cell reflections. The solver is validated against the Ghia et al. (1982) benchmark at $Re = 1000$.
+ 
 ---
 
 ## 2. Domain, Grid, and Variable Arrangement
