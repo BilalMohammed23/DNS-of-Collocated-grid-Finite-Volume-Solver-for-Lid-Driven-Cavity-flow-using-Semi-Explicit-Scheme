@@ -14,7 +14,7 @@ for iter = 1:max_iter
 
     q_old = q;
 
-    % Neumann pressure BC: dP/dn = 0
+    % neumann pressure BC: dP/dn = 0
     q(1,:)     = q(2,:);       % top
     q(end,:)   = q(end-1,:);   % bottom
     q(:,1)     = q(:,2);       % left
