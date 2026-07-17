@@ -1,4 +1,4 @@
-# Lid-Driven Cavity Solver — Collocated FVM using Semi-Explicit Predictor Corrector Scheme
+# Lid-Driven Cavity Solver - Collocated FVM using Semi-Explicit Predictor Corrector Scheme
 
 ---
 
